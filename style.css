@@ -107,6 +107,7 @@ header {
   gap: 0.5rem;
   font-size: 1.125rem;
   font-weight: 500;
+  margin-right: 12px;
 }
 
 .language a {
@@ -123,7 +124,6 @@ header {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-
 
 
 /* HEADER USER-NAV */
