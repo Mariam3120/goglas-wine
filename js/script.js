@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // შევამოწმო, არსებობს თუ არა 'wrapper' ამ გვერდზე
   let wrapper = document.getElementById("wrapper");
   if (!wrapper) {
-      return; // თუ არ არსებობს, ვწყვეტთ ამ ბლოკის შესრულებას
+    return; // თუ არ არსებობს, ვწყვეტთ ამ ბლოკის შესრულებას
   }
 
   // თუ wrapper არსებობს, მაშინ მის შიდა ელემენტებსაც ვეძებ
@@ -12,24 +12,24 @@ document.addEventListener("DOMContentLoaded", function () {
   let handle = wrapper.querySelector(".handle");
   let skewed = 0;
   let delta = 0;
-  
+
   // შემოწმება დავამატოთ topLayer-ზე და handle-ზეც, უსაფრთხოებისთვის.
   if (!topLayer || !handle) {
-      console.error("Missing .top or .handle inside #wrapper");
-      return;
+    console.error("Missing .top or .handle inside #wrapper");
+    return;
   }
 
   if (wrapper.className.indexOf("skewed") != -1) {
-      skew = 1000;
+    skew = 1000;
   }
-  
+
   // თუ ყველაფერი კარგადაა, ვამაგრებთ event listener-ს
   wrapper.addEventListener("mousemove", function (e) {
-      delta = (e.clientX - window.innerWidth / 2) * 0.5;
+    delta = (e.clientX - window.innerWidth / 2) * 0.5;
 
-      handle.style.left = e.clientX + delta + "px";
+    handle.style.left = e.clientX + delta + "px";
 
-      topLayer.style.width = e.clientX + skew + delta + "px";
+    topLayer.style.width = e.clientX + skew + delta + "px";
   });
 });
 
@@ -39,158 +39,168 @@ function toggleMobileNav() {
   nav.classList.toggle("nav-open");
 }
 
-//---------- SEARCH and კატეგორიების ფილტრაცია------------
+//---------- SEARCH and კატეგორიების ფილტრაცია ერთად------------
 
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // ვეძებთ ყველა ძირითად ელემენტს, რომელიც ფილტრაციისთვისაა საჭირო:
-    const wineCards = document.querySelectorAll(".grid-3-cols");
-    const filterLinks = document.querySelectorAll(".f-list a");
-    const input = document.getElementById("search");
+  // ვეძებთ ყველა ძირითად ელემენტს, რომელიც ფილტრაციისთვისაა საჭირო:
+  const wineCards = document.querySelectorAll(".grid-3-cols");
+  const filterLinks = document.querySelectorAll(".f-list a");
+  const input = document.getElementById("search");
 
-    // უსაფრთხოების შემოწმება: თუ ბარათები არ არსებობს, ვჩერდებით.
-    if (wineCards.length === 0) {
-        return; // ამ გვერდზე ფილტრაცია შეუძლებელია
-    }
-    
-    // გლობალური ფუნქცია: ბარათების ჩვენება/დამალვა
-    
-    function applyFilters() {
-        // 1. მიიღე მიმდინარე აქტიური კატეგორიის ფილტრი
-        const activeFilterLink = document.querySelector(".f-list a.active");
-        const categoryFilter = activeFilterLink 
-            ? activeFilterLink.getAttribute("data-filter") 
-            : "all"; // თუ არცერთი არაა აქტიური, ნაგულისხმევად 'all'
-            
-        // 2. მიიღეთ ძებნის ტერმინი (თუ input არსებობს)
-        const searchTerm = input ? input.value.toLowerCase() : "";
+  // უსაფრთხოების შემოწმება: თუ ბარათები არ არსებობს, ვჩერდებით.
+  if (wineCards.length === 0) {
+    return; // ამ გვერდზე ფილტრაცია შეუძლებელია
+  }
 
-        // 3. გაიარე ყველა ბარათი და გადაწყვიტე, გამოჩნდეს თუ არა
-        wineCards.forEach((card) => {
-            const cardCategory = card.getAttribute("data-category");
-            const cardName = card.getAttribute("data-name").toLowerCase(); 
+  // გლობალური ფუნქცია: ბარათების ჩვენება/დამალვა
 
-            // კრიტერიუმი A: კატეგორია ემთხვევა?
-            const categoryMatches = (categoryFilter === "all" || cardCategory === categoryFilter);
+  function applyFilters() {
+    // 1. მიიღე მიმდინარე აქტიური კატეგორიის ფილტრი
+    const activeFilterLink = document.querySelector(".f-list a.active");
+    const categoryFilter = activeFilterLink
+      ? activeFilterLink.getAttribute("data-filter")
+      : "all"; // თუ არცერთი არაა აქტიური, ნაგულისხმევად 'all'
 
-            // კრიტერიუმი B: სახელი ემთხვევა ძებნის ტერმინს?
-            const searchMatches = (cardName.includes(searchTerm));
-            
-            // თუ ორივე კრიტერიუმი შესრულდა, ვაჩენთ ბარათს.
-            if (categoryMatches && searchMatches) {
-                card.classList.remove("hidden");
-            } else {
-                card.classList.add("hidden");
-            }
-        });
-    }
+    // 2. მიიღეთ ძებნის ტერმინი (თუ input არსებობს)
+    const searchTerm = input ? input.value.toLowerCase() : "";
 
-    // 4. EVENT LISTENERS
+    // 3. გაიარე ყველა ბარათი და გადაწყვიტე, გამოჩნდეს თუ არა
+    wineCards.forEach((card) => {
+      const cardCategory = card.getAttribute("data-category");
+      const cardName = card.getAttribute("data-name").toLowerCase();
 
-    // Search input-ზე ცვლილება
-    if (input) {
-        input.addEventListener("input", applyFilters);
-    }
+      // კრიტერიუმი A: კატეგორია ემთხვევა?
+      const categoryMatches =
+        categoryFilter === "all" || cardCategory === categoryFilter;
 
-    // კატეგორიის ლინკებზე კლიკი
-    if (filterLinks.length > 0) {
-        // ნაგულისხმევად პირველი ლინკი 'all' უნდა იყოს აქტიური
-        // თუ არაფერი არ არის აქტიური, დაამატე 'active' კლასი 'all'-ზე
-        if (!document.querySelector(".f-list a.active")) {
-             filterLinks[0].classList.add("active");
-        }
-        
-        filterLinks.forEach((link) => {
-            link.addEventListener("click", function (e) {
-                e.preventDefault(); 
-                
-                // აქტიური კლასის განახლება
-                filterLinks.forEach((l) => l.classList.remove("active"));
-                this.classList.add("active");
+      // კრიტერიუმი B: სახელი ემთხვევა ძებნის ტერმინს?
+      const searchMatches = cardName.includes(searchTerm);
 
-                // ფილტრაციის ფუნქციის გამოძახება
-                applyFilters();
-            });
-        });
+      // თუ ორივე კრიტერიუმი შესრულდა, ვაჩენთ ბარათს.
+      if (categoryMatches && searchMatches) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+  }
+
+  // 4. EVENT LISTENERS
+
+  // Search input-ზე ცვლილება
+  if (input) {
+    input.addEventListener("input", applyFilters);
+  }
+
+  // კატეგორიის ლინკებზე კლიკი
+  if (filterLinks.length > 0) {
+    // ნაგულისხმევად პირველი ლინკი 'all' უნდა იყოს აქტიური
+    // თუ არაფერი არ არის აქტიური, დაამატე 'active' კლასი 'all'-ზე
+    if (!document.querySelector(".f-list a.active")) {
+      filterLinks[0].classList.add("active");
     }
 
-    // გვერდის ჩატვირთვისას, პირველი ფილტრაციის გაშვება
-    applyFilters(); 
-    
+    filterLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // აქტიური კლასის განახლება
+        filterLinks.forEach((l) => l.classList.remove("active"));
+        this.classList.add("active");
+
+        // ფილტრაციის ფუნქციის გამოძახება
+        applyFilters();
+      });
+    });
+  }
+
+  // გვერდის ჩატვირთვისას, პირველი ფილტრაციის გაშვება
+  applyFilters();
 });
 
 //------------მთავარი სექციის დეტალების ფანჯრის გახსნა--------------
-// // Cards და Modal ელემენტები
+// // -----------CARDS და MODAL ელემენტები
 // ნაწილი 1: მოდალის ლოგიკა (გვერდებზე, სადაც პროდუქციაა)
-// გამოიყენე null-ის შემოწმება, რო არ გამოიწვიოს შეცდომა გვერდებზე, 
+// გამოიყენე null-ის შემოწმება, რო არ გამოიწვიოს შეცდომა გვერდებზე,
 // სადაც ეს ელემენტები არ არსებობს (მაგ. contact.html)
+
 const cards = document.querySelectorAll(".grid-3-cols");
 const modal = document.getElementById("wineModal");
 
 // მოდალი მხოლოდ იმ შემთხვევაში გაეშვება, თუ modal და cards არსებობს
 if (modal && cards.length > 0) {
-    const modalImage = document.getElementById("modal-image");
-    const modalName = document.getElementById("modal-name");
-    const modalDesc = document.getElementById("modal-description");
-    const modalPrice = document.getElementById("modal-price");
-    const closeBtn = document.querySelector(".close-btn");
+  const modalImage = document.getElementById("modal-image");
+  const modalName = document.getElementById("modal-name");
+  const modalDesc = document.getElementById("modal-description");
+  const modalPrice = document.getElementById("modal-price");
+  const closeBtn = document.querySelector(".close-btn");
 
-    // აქტიური ენის ამოცნობა (ახლა უკვე LocalStorage-დან იღებს)
-    function getActiveLang() {
-        // წაიკითხეთ ენა LocalStorage-დან, ნაგულისხმევად გამოიყენეთ 'geo'
-        return localStorage.getItem('currentLang') || 'geo';
-    }
+  // აქტიური ენის ამოცნობა (LocalStorage-დან იღებს)
+  function getActiveLang() {
+    // წაიკითხეთ ენა LocalStorage-დან, ნაგულისხმევად გამოიყენეთ 'geo'
+    return localStorage.getItem("currentLang") || "geo";
+  }
 
-    // თითოეულ ბარათზე listener
-    cards.forEach((card) => {
-        const overlay = card.querySelector(".overlay");
-        if (!overlay) return;
+  // თითოეულ ბარათზე listener
+  cards.forEach((card) => {
+    const overlay = card.querySelector(".overlay");
+    if (!overlay) return;
 
-        overlay.addEventListener("click", (e) => {
-            e.stopPropagation();
+    overlay.addEventListener("click", (e) => {
+      e.stopPropagation();
 
-            const lang = getActiveLang(); // LocalStorage-დან ენის აღება
+      const lang = getActiveLang(); // LocalStorage-დან ენის აღება
 
-            if (modalImage && card.dataset.image) modalImage.src = card.dataset.image;
+      if (modalImage && card.dataset.image) modalImage.src = card.dataset.image;
 
-            // ენის გასაღებების დინამიურად შექმნა
-            const nameKey = lang === "geo" ? "name" : "nameEng";
-            if (modalName) modalName.textContent = card.dataset[nameKey] || card.dataset.name;
+      // 1. სათაურის თარგმნა (შესწორებული ლოგიკა)
+      const nameToDisplay =
+        lang === "geo"
+          ? card.dataset.name // data-name (ქართული)
+          : card.dataset.nameEng; // data-name-eng (ინგლისური)
 
-            const descKey = lang === "geo" ? "descriptionGeo" : "descriptionEng";
-            if (modalDesc) modalDesc.textContent = card.dataset[descKey] || card.dataset.description;
+      if (modalName) modalName.textContent = nameToDisplay || card.dataset.name;
 
-            if (modalPrice) modalPrice.textContent = card.dataset.price;
+      // 2. აღწერილობის თარგმნა (შესწორებული ლოგიკა)
+      const descToDisplay =
+        lang === "geo"
+          ? card.dataset.descriptionGeo // data-description-geo (ქართული)
+          : card.dataset.descriptionEng; // data-description-eng (ინგლისური)
 
-            modal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        });
+      if (modalDesc)
+        modalDesc.textContent = descToDisplay || card.dataset.descriptionGeo; // ნაგულისხმევად ქართული
+
+      if (modalPrice) modalPrice.textContent = card.dataset.price;
+
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  // დახურვის ლოგიკა
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
     });
 
-    // დახურვის ლოგიკაშიც დაამატე შემოწმება closeBtn-ზე
-    if (closeBtn) {
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        });
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
 
-        window.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        });
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && modal.style.display === "flex") {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        });
-    }
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  }
 }
 
-// ---------------CART PRICE ADDED-----------
+// ---------------CART PRICE ADDED--------------------
 
 // const buttons = document.querySelectorAll(".add-to-cart-btn");
 // const cartCount = document.querySelector(".cart-count");
@@ -266,7 +276,6 @@ function updateCartCount() {
 //array.reduce((accumulator, currentValue) => ..., initialValue); accumulator (ჩვენთან sum) — შიგნით აგროვებს შედეგს. currentValue (ჩვენთან item) — ყოველი პროდუქტი მასივიდან. initialValue — საწყისი მნიშვნელობაა (0), რომ თავიდანვე დავიწყოთ ნულიდან დათვლა.
 //ფუნქცია აკეთებს: sum + item.quantity (ეს sum არის 0 რომელიც ბოლოში მიწერია)
 
-
 //-------------ენის გადამრთველი--------------
 
 // -----------------------------------------------------------------
@@ -279,67 +288,68 @@ document.addEventListener("DOMContentLoaded", () => {
   const langLinks = langContainer.querySelectorAll("a");
   const elementsToTranslate = document.querySelectorAll("[data-translate]");
   const defaultLang = "geo";
-  
+
   // ამოიღეთ ენა LocalStorage-დან ან გამოიყენეთ ნაგულისხმევი
-  const currentLang = localStorage.getItem('currentLang') || defaultLang; 
+  const currentLang = localStorage.getItem("currentLang") || defaultLang;
 
   // კოდი loadLangFile იგივე დარჩა...
   async function loadLangFile(lang) {
-      try {
-          // შეამოწმეთ სწორია თუ არა ფაილის გზა სხვადასხვა გვერდებიდან
-          const res = await fetch(`languages/${lang}.json`); 
-          if (!res.ok)
-              throw new Error(`Failed to load languages/${lang}.json`);
-          return await res.json();
-      } catch (err) {
-          console.error("Language load error:", err);
-          return null;
-      }
+    try {
+      // შეამოწმეთ სწორია თუ არა ფაილის გზა სხვადასხვა გვერდებიდან
+      const res = await fetch(`languages/${lang}.json`);
+      if (!res.ok) throw new Error(`Failed to load languages/${lang}.json`);
+      return await res.json();
+    } catch (err) {
+      console.error("Language load error:", err);
+      return null;
+    }
   }
 
   async function setLanguage(lang) {
-      const data = await loadLangFile(lang);
-      if (!data) return;
+    const data = await loadLangFile(lang);
+    if (!data) return;
 
-      // 1. შეინახეთ არჩეული ენა LocalStorage-ში
-      localStorage.setItem('currentLang', lang);
+    // 1. შეინახეთ არჩეული ენა LocalStorage-ში
+    localStorage.setItem("currentLang", lang);
 
-      // 2. ტექსტების თარგმნა
-      elementsToTranslate.forEach((el) => {
-          const key = el.getAttribute("data-translate");
-          if (key && data[key]) el.textContent = data[key];
-      });
+    // 2. ტექსტების თარგმნა
+    elementsToTranslate.forEach((el) => {
+      const key = el.getAttribute("data-translate");
+      if (key && data[key]) el.textContent = data[key];
+    });
+    //  Placeholder-ების თარგმნა
+    document.querySelectorAll("[data-translate-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-translate-placeholder");
+      if (key && data[key]) {
+        el.setAttribute("placeholder", data[key]);
+      }
+    });
 
-      // 3. ბარათების data-ატრიბუტების განახლება (საჭიროა მოდალისთვის)
-      const cards = document.querySelectorAll(".grid-3-cols");
-      cards.forEach((card) => {
-          const isGeo = lang === "geo";
+    // 3. ბარათების data-ატრიბუტების განახლება (საჭიროა მოდალისთვის)
+    const cards = document.querySelectorAll(".grid-3-cols");
+    cards.forEach((card) => {
+      const isGeo = lang === "geo";
 
-          // Data Name
-          const nameKey = isGeo ? "data-name" : "data-name-eng";
-          const nameAttr = isGeo ? "data-name" : "data-name"; // ორივე შემთხვევაში data-name განვაახლოთ
-          if (card.hasAttribute(nameKey)) {
-              // წაიკითხეთ საჭირო ატრიბუტი და განაახლეთ display ატრიბუტი
-              card.setAttribute(nameAttr, card.getAttribute(nameKey));
-          }
-          
-          // Data Description
-          const descKey = isGeo ? "data-description-geo" : "data-description-eng";
-          const descAttr = isGeo ? "data-description" : "data-description";
-          if (card.hasAttribute(descKey)) {
-              card.setAttribute(descAttr, card.getAttribute(descKey));
-          }
-      });
-      
-      // 4. active კლასის განახლება (ვიზუალური ინდიკატორი)
-      langLinks.forEach((link) => {
-          link.classList.toggle("active", link.id === lang);
-      });
-      
-      // 5. თუ გვერდზეა პროდუქტის მოდალი, განაახლეთ ისიც
-      // (თუ მოდალი ღია იყო და ენა გადაირთო, ამან უნდა დაათარგმნინოს)
-      // ეს რთული ფუნქციაა, ჯობს მომხმარებელმა გვერდი გადატვირთოს, ან მოდალის ლოგიკა დაემატოს.
-      // ამ ეტაპზე, უბრალოდ გვერდს ავტომატურად ვტვირთავთ სწორი ენით.
+      // Data Name
+      const nameKey = isGeo ? "data-name" : "data-name-eng";
+      const nameAttr = isGeo ? "data-name" : "data-name"; // ორივე შემთხვევაში data-name განვაახლოთ
+      if (card.hasAttribute(nameKey)) {
+        // წაიკითხეთ საჭირო ატრიბუტი და განაახლეთ display ატრიბუტი
+        card.setAttribute(nameAttr, card.getAttribute(nameKey));
+      }
+
+      // Data Description
+      const descKey = isGeo ? "data-description-geo" : "data-description-eng";
+      const descAttr = isGeo ? "data-description" : "data-description";
+      if (card.hasAttribute(descKey)) {
+        card.setAttribute(descAttr, card.getAttribute(descKey));
+      }
+    });
+
+    // 4. active კლასის განახლება (ვიზუალური ინდიკატორი)
+    langLinks.forEach((link) => {
+      link.classList.toggle("active", link.id === lang);
+    });
   }
 
   // გვერდის ჩატვირთვისას: ავტომატურად დააყენეთ ენა LocalStorage-ის მიხედვით
@@ -347,10 +357,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ღილაკებზე კლიკი: შეინახეთ ენა და განაახლეთ გვერდი
   langLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-          e.preventDefault();
-          // აქ ვინახავთ LocalStorage-ში და ვთარგმნით
-          setLanguage(link.id); 
-      });
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      // აქ ვინახავთ LocalStorage-ში და ვთარგმნით
+      setLanguage(link.id);
+    });
   });
 });

@@ -11,5 +11,18 @@
   "wine5-title": "Khikhvi",
   "wine6-title": "Sauvignon Blanc",
   "buy": "Buy",
-  "details": "Details"
+  "details": "Details",
+  "search_placeholder": "Search...",
+  "category_header": "Category",
+  "category_all": "All",
+  "category_red": "Red Wine",
+  "category_white": "White Wine",
+  "footer_shop_title": "Gogla's Wine can be purchased in stores:",
+  "shop_alcorium": "Alcorium",
+  "shop_8000": "8000 Vintages",
+  "shop_whisky": "Whisky House",
+  "footer_requisites_title": "Requisites",
+  "footer_production_text": "Produced and bottled in Georgia by LLC \"Shalvino\".",
+  "footer_address": "Panaskerteli/Tsitsishvili Street, 1st Block, Apartment № 10",
+  "footer_contact_title": "Contact"
 }

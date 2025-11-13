@@ -11,5 +11,18 @@
   "wine5-title": "ხიხვი",
   "wine6-title": "სოვინიონ ბლანი",
   "buy": "იყიდე",
-  "details": "დეტალურად"
+  "details": "დეტალურად",
+  "search_placeholder": "ძიება სიტყვით...",
+  "category_header": "კატეგორია",
+  "category_all": "ყველა",
+  "category_red": "წითელი ღვინო",
+  "category_white": "თეთრი ღვინო",
+  "footer_shop_title": "გოგლას ღვინის შეძენა შესაძლებელია მაღაზიებში:",
+  "shop_alcorium": "ალკორიუმი",
+  "shop_8000": "8000 მოსავალი",
+  "shop_whisky": "ვისკის სახლი",
+  "footer_requisites_title": "რეკვიზიტები",
+  "footer_production_text": "წარმოებულია და ჩამოსხმულია საქართველოში შპს \"შალვინოს\" მიერ.",
+  "footer_address": "ფანასკერტელი/ციციშვილის ქუჩა, პირველი კორპუსი, ბინა № 10",
+  "footer_contact_title": "კონტაქტი"
 }
