@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//რესპონსივში (header) -----ჰამბურგერზე დაკლიკებისას გამოჩენა მენიუსი და კლასის დამატება
+//----------რესპონსივში (header) -----ჰამბურგერზე დაკლიკებისას გამოჩენა მენიუსი და კლასის დამატება
 function toggleMobileNav() {
   const nav = document.querySelector(".main-nav");
   nav.classList.toggle("nav-open");

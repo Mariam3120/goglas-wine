@@ -800,6 +800,31 @@ footer {
     display: none;
   }
   /*cards responsive ends here */
+
+  /*----FOOTER RESPONSIVE----*/
+  .footer-grid-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  } 
+  .footer-grid-container > div {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+  }
+  .footer-grid-container > div:last-child {
+    border-bottom: none;
+  }
+  footer .container {
+    padding: 0 20px; /* მარცხნივ და მარჯვნივ 20px დაშორება */
+  }
+  .footer-grid-container {
+    text-align: center;
+    justify-items: center; /* grid-ის შიგნით ყველა div ცენტრში */
+  }
+  .logo-col {
+    align-items: center;
+    text-align: center;
+  }
+  
 }
 
 /*Smaller screen!!*/
