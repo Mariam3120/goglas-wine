@@ -1,20 +1,19 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// დამატებულია: getAuth და createUserWithEmailAndPassword ავთენტიფიკაციის SDK-დან
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCjCkuGMe2qkVjG5vlpV495K0Z1zQJ3rW4",
-  authDomain: "goglas-wine-acc47.firebaseapp.com",
-  projectId: "goglas-wine-acc47",
-  storageBucket: "goglas-wine-acc47.firebasestorage.app",
-  messagingSenderId: "873836961968",
-  appId: "1:873836961968:web:39c6f1b052ca23a5fcdb75"
+    // 💡 ახალი, დაცული API გასაღები ჩასმულია აქ!
+    apiKey: "AIzaSyBebXrLOTQ3MYtaNY9gg5OuOs0jPyDKXIc", 
+    authDomain: "goglas-wine-acc47.firebaseapp.com",
+    projectId: "goglas-wine-acc47",
+    storageBucket: "goglas-wine-acc47.firebasestorage.app",
+    messagingSenderId: "873836961968",
+    appId: "1:873836961968:web:39c6f1b052ca23a5fcdb75"
 };
+
+
 
 document.getElementById('register-btn').addEventListener("click", register)
 
