@@ -60,5 +60,20 @@
   "msg_user_disabled": "This account has been disabled.",
   "msg_invalid_credential": "Email or password is incorrect.",
   "msg_logout_success": "Successfully logged out!",
-  "msg_logout_failed": "Logout failed."
+  "msg_logout_failed": "Logout failed.",
+  "products_page_title": "Explore Our Products",
+  "saperavi_title": "Saperavi",
+  "saperavi_desc": "A dry red wine made from selected grapes grown in the microzone of Kardenakhi village, giving the wine its exclusive aroma and taste. The wine is aged in qvevri, with a 6-7 day fermentation period on chacha. Distinguished by its velvety, balanced varietal taste. Recommended with meat dishes.",
+  "tsarapi_title": "Tsarapi",
+  "tsarapi_desc": "A protected designation of origin dry white wine made from selected Rkatsiteli grapes grown in the Tsarapi microzone. The wine is made in qvevri using the traditional Kakhetian method, with a 4-5 month maceration period. Distinguished by various fruit aromas and a balanced honey taste. Recommended with grilled meat and meat dishes.",
+  "kindzmarauli_title": "Kindzmarauli",
+  "kindzmarauli_desc": "A protected designation of origin semi-sweet red wine made from selected Saperavi grapes grown in the Kindzmarauli zone of Kakheti, giving the wine its distinctive aroma and taste. The wine is characterized by a ruby color, pronounced blackcurrant and cherry aromas. Distinguished by harmonious taste and balanced structure. Recommended with fruits and desserts, as well as meat dishes prepared with sweet sauce.",
+  "khikhvi_title": "Khikhvi",
+  "khikhvi_desc": "A dry white wine made from selected Khikhvi grapes grown in the Kardenakhi microzone. The wine is made in qvevri using the traditional Kakhetian method, with a 4-5 month maceration period. Characterized by an amber color, delicate honey aroma and taste. Recommended with grilled meat and meat dishes.",
+  "kisi_title": "Kisi",
+  "kisi_desc": "A dry white wine made from selected Kisi grapes grown in the Kardenakhi microzone. The wine is made in qvevri using the traditional Kakhetian method, with a 4-5 month maceration period. The wine is distinguished by its original varietal and velvety taste with pronounced various fruit tones. Recommended with grilled meat and meat dishes.",
+  "sauvignon_title": "Sauvignon Blanc",
+  "sauvignon_desc": "GOGLA's Sauvignon Blanc - a 2024 novelty in our winery — a white, semi-sweet wine, made using classical technology. 🍇 Harvest: 2024 📍 Microzone: Kardenakhi 🍷 Technology: Classical 🔸 Alcohol: 11%. Made from selected Sauvignon Blanc grapes. Distinguished by refined structure and rich aromas — dominated by delicate tones of pear and melon. The taste is velvety, with balanced acidity and a long, elegant finish. ✨ Recommended with: seafood, white meat, and salads prepared with citrus sauce.",
+  "contact_title": "Contact Us",
+  "contact_description": "If you have any questions or would like to collaborate, contact us on any social network or call us at: +995 597 750 703. We'll be happy to help!"
 }
