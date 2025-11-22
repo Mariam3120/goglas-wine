@@ -64,15 +64,17 @@
   </header>
   <main>
     <div class="container">
-      <h1 class="cart-title">ჩემი კალათა</h1>
+      <h1 class="cart-title" data-translate="cart_title">ჩემი კალათა</h1>
       <div id="cart-items"></div>
-      <h3 id="cart-total">ჯამი: 0 ლ</h3>
+      <h3 id="cart-total">
+        <span data-translate="cart_total">ჯამი</span>: 
+        <span id="total-amount">0</span> 
+        <span data-translate="currency">ლ</span>
+      </h3>
     </div>
-  
   </main>
 
 
-  
   <script src="js/cart.js"></script>
 </body>
 </html>

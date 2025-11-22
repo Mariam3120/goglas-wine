@@ -24,5 +24,13 @@
   "footer_requisites_title": "რეკვიზიტები",
   "footer_production_text": "წარმოებულია და ჩამოსხმულია საქართველოში შპს \"შალვინოს\" მიერ.",
   "footer_address": "ფანასკერტელი/ციციშვილის ქუჩა, პირველი კორპუსი, ბინა № 10",
-  "footer_contact_title": "კონტაქტი"
+  "footer_contact_title": "კონტაქტი",
+  "cart_title": "ჩემი კალათა",
+  "cart_total": "ჯამი",
+  "cart_empty": "თქვენი კალათა ცარიელია",
+  "currency": "ლ",
+  "price": "ფასი",
+  "quantity": "რაოდენობა",
+  "remove": "წაშლა"
+  
 }

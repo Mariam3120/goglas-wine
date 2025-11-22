@@ -622,7 +622,10 @@ header {
   background-color: #f7f1ed;
 }
 .about-section{
-  margin: 100px 0;
+  padding: 150px 0; 
+  min-height: 70vh; 
+  display: flex; 
+  align-items: center; 
 }
 .about-txt{
   width: 50%;
@@ -639,8 +642,31 @@ header {
 
 
 /*===========COTACT PAGE ==========*/
-.contact-section{
-  padding: 100px 0;
+#contact-body{
+  background-color: #f7f1ed;
+}
+.contact-section {
+  padding: 150px 0; 
+  min-height: 70vh; 
+  display: flex; 
+  align-items: center; 
+}
+
+.cont-img{
+  width: 45%;
+  max-width: 500px;
+}
+.cont-img img {
+  width: 100%; /* დაიკავოს მშობლის მთელი სიგანე */
+  height: auto; /* სიმაღლე ავტომატურად დარეგულირდეს */
+  display: block; /* წაშალოს ნებისმიერი "ქვედა სივრცე" (baseline gap) */
+  border-radius: 10px; 
+}
+.contact-flex-cont{
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 50px;
 }
 #contact-title{
   text-align: center;
@@ -648,21 +674,33 @@ header {
   font-size: 32px;
 }
 .contact{
-  width: 35%;
+  width: 45%;
+  min-width: 300px;
   border: 1px solid #d4af37;
   padding: 25px;
   border-radius: 0 25px 0 25px;
   color:#4a0e15;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
-
 .contact-links{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
-  padding: 20px;
+  padding: 20px 0;
+  margin: 0;
 }
+#contact-p {
+  
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
 .contact-links svg {
   width: 35px;
   height: auto;
@@ -833,6 +871,39 @@ footer {
     display: none;
   }
   /*cards responsive ends here */
+  /*კონტაქტის რესპონსივიიი */
+  .contact-flex-cont {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; 
+  }
+
+  .cont-img {
+    width: 100%; 
+    max-width: 400px; 
+  }
+
+  .contact {
+    width: 90%;
+    min-width: unset; 
+  }
+  
+  .contact {
+      display: block; 
+      flex-direction: unset;
+      justify-content: unset;
+      padding: 20px;
+  }
+  
+  #contact-title, #contact-p {
+    text-align: center;
+  }
+  
+  .contact-links {
+      justify-content: center;
+  }
+
+
 
   /*----FOOTER RESPONSIVE----*/
   .footer-grid-container {

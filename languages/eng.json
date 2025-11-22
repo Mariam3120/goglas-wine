@@ -24,5 +24,12 @@
   "footer_requisites_title": "Requisites",
   "footer_production_text": "Produced and bottled in Georgia by LLC \"Shalvino\".",
   "footer_address": "Panaskerteli/Tsitsishvili Street, 1st Block, Apartment № 10",
-  "footer_contact_title": "Contact"
+  "footer_contact_title": "Contact",
+  "cart_title": "My Cart",
+  "cart_total": "Total",
+  "cart_empty": "Your cart is empty",
+  "currency": "GEL",
+  "price": "Price",
+  "quantity": "Quantity",
+  "remove": "Remove"
 }
