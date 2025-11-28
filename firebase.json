@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "goglas-wine",
+    "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
