@@ -124,6 +124,9 @@ header {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+.mobile-lang {
+  display: none;
+}
 
 
 /* HEADER USER-NAV */
@@ -815,6 +818,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     z-index: 1500; /*headerზე მაღლა */
 
     /*hidden by default*/
@@ -839,6 +843,16 @@ footer {
   .nav-list a {
     font-size: 2rem;
   }
+  .mobile-lang {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .language {
+    display: none;
+  }
+
   /*login text hidden*/
   .login-link span {
     display: none;
