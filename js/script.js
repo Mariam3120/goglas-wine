@@ -153,7 +153,7 @@ if (modal && cards.length > 0) {
 
       if (modalImage && card.dataset.image) modalImage.src = card.dataset.image;
 
-      // 1. სათაურის თარგმნა 
+      // 1. სათაურის თარგმნა
       const nameToDisplay =
         lang === "geo"
           ? card.dataset.name // data-name (ქართული)
@@ -161,7 +161,7 @@ if (modal && cards.length > 0) {
 
       if (modalName) modalName.textContent = nameToDisplay || card.dataset.name;
 
-      // 2. აღწერილობის თარგმნა 
+      // 2. აღწერილობის თარგმნა
       const descToDisplay =
         lang === "geo"
           ? card.dataset.descriptionGeo // data-description-geo (ქართული)
@@ -284,8 +284,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ეს შემოწმება აფიქსირებს მეორე ერორს: Cannot read properties of null (reading 'querySelector')
   const langContainer = document.querySelector(".language");
   if (!langContainer) return; // თუ ამ გვერდზე .language არ არსებობს, ვაჩერებთ სკრიპტს
-
   const langLinks = langContainer.querySelectorAll("a");
+  
   const elementsToTranslate = document.querySelectorAll("[data-translate]");
   const defaultLang = "geo";
 
@@ -363,4 +363,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setLanguage(link.id);
     });
   });
+
 });
+

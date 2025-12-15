@@ -846,7 +846,13 @@ footer {
   .mobile-lang {
     display: flex;
     justify-content: center;
+    font-size: 2rem;
     margin-top: 2rem;
+    color: #4a0e15;
+  }
+  .mobile-lang a{
+    color: #4a0e15;
+    padding: 5px;
   }
 
   .language {
