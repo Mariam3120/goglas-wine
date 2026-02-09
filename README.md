@@ -7,6 +7,11 @@ The project was developed using HTML, CSS, and Vanilla JavaScript, with Firebase
 
 This website represents a real Georgian wine brand and serves as a presentational platform until full backend e-commerce functionality is implemented.
 
+## 🎥 Demo
+
+[![Watch Demo](https://www.loom.com/share/7e1964e7fb754b079473c09c7f93b90a)]
+
+
 🎨 Design & Concept
 
 The entire design concept was created independently and inspired by the wine brand’s logo and identity.
