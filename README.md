@@ -9,7 +9,7 @@ This website represents a real Georgian wine brand and serves as a presentationa
 
 ## 🎥 Demo
 
-[![Watch Demo](https://www.loom.com/share/7e1964e7fb754b079473c09c7f93b90a)]
+[![Watch Demo]([https://www.loom.com/share/7e1964e7fb754b079473c09c7f93b90a](https://www.loom.com/share/7e1964e7fb754b079473c09c7f93b90a))]
 
 
 🎨 Design & Concept
