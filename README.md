@@ -107,6 +107,7 @@ Overall project scalability
 Example implementation:
 
 let wrapper = document.getElementById("wrapper");
+
 if (!wrapper) return;
 
 ✅ UI/UX Decision Making
