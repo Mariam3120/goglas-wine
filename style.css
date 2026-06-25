@@ -24,10 +24,17 @@ ol {
 .container {
   max-width: 1400px;
   margin: 0 auto;
- 
+  /* გვერდითი მინდვრები, რომ კონტენტი ეკრანის კიდეებს არ ეხებოდეს ვიწრო ეკრანებზე */
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* ---HEADER--- */
+/* header-ს უკვე აქვს საკუთარი padding, ამიტომ container-ის ახალ მინდვრებს აქ ვაუქმებთ */
+header .container {
+  padding-left: 0;
+  padding-right: 0;
+}
 header {
   background-color: #fae2d0; /*კრემისფერი ფონი*/
   padding: 1rem 2rem;

@@ -281,11 +281,14 @@ function updateCartCount() {
 // -----------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ეს შემოწმება აფიქსირებს მეორე ერორს: Cannot read properties of null (reading 'querySelector')
-  const langContainer = document.querySelector(".language");
-  if (!langContainer) return; // თუ ამ გვერდზე .language არ არსებობს, ვაჩერებთ სკრიპტს
-  const langLinks = langContainer.querySelectorAll("a");
-  
+  // ვაგროვებთ ენის ლინკებს ორივე გადამრთველიდან:
+  // .language (დესკტოპი) და .mobile-lang (ბურგერ მენიუს შიგნით, მობილურზე)
+  const langLinks = document.querySelectorAll(".language a, .mobile-lang a");
+  if (langLinks.length === 0) return; // თუ ამ გვერდზე ენის გადამრთველი არ არსებობს, ვაჩერებთ სკრიპტს
+
+  // ლინკიდან ენის ამოღება: მობილურ ლინკებს აქვს data-lang, დესკტოპს — id
+  const getLinkLang = (link) => link.dataset.lang || link.id;
+
   const elementsToTranslate = document.querySelectorAll("[data-translate]");
   const defaultLang = "geo";
 
@@ -348,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 4. active კლასის განახლება (ვიზუალური ინდიკატორი-ხაზი)
     langLinks.forEach((link) => {
-      link.classList.toggle("active", link.id === lang);
+      link.classList.toggle("active", getLinkLang(link) === lang);
     });
   }
 
@@ -360,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       // აქ ვინახავთ LocalStorage-ში და ვთარგმნით
-      setLanguage(link.id);
+      setLanguage(getLinkLang(link));
     });
   });
 
